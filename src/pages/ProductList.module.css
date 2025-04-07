@@ -1,0 +1,241 @@
+.productList {
+  padding: 10px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.productTable {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  font-size: 0.8em;
+}
+
+.productTable th,
+.productTable td {
+  padding: 4px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.productTable th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.85em;
+}
+
+.productTable tr:hover {
+  background-color: #f5f5f5;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 3px;
+}
+
+.actionButtons button {
+  padding: 2px 4px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  background-color: #3498db;
+  color: white;
+  font-size: 0.75em;
+}
+
+.actionButtons button:hover {
+  background-color: #2980b9;
+}
+
+.deleteButton {
+  background-color: #e74c3c !important;
+}
+
+.deleteButton:hover {
+  background-color: #c0392b !important;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 6px;
+  background-color: #f8f9fa;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.pagination button {
+  padding: 3px 6px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  background-color: white;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  font-size: 0.8em;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #f0f0f0;
+  border-color: #ccc;
+}
+
+.pagination button:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.pagination span {
+  color: #666;
+  font-weight: 500;
+  font-size: 0.8em;
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2em;
+  color: #666;
+}
+
+.error {
+  color: #e74c3c;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  background-color: #fde8e8;
+}
+
+.noProducts {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  font-style: italic;
+}
+
+.welcome {
+  text-align: center;
+  padding: 2rem;
+  font-size: 4.5rem;
+  color: #2c3e50;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin: 2rem auto;
+  max-width: 600px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: green;
+}
+
+.editButton {
+  padding: 6px 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.editButton:hover {
+  background-color: #218838;
+}
+
+.editModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.editModalContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  direction: rtl;
+}
+
+.editModalContent h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="number"],
+.formGroup textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.formGroup textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.saveButton,
+.cancelButton {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.saveButton {
+  background-color: #28a745;
+  color: white;
+}
+
+.saveButton:hover {
+  background-color: #218838;
+}
+
+.cancelButton {
+  background-color: #6c757d;
+  color: white;
+}
+
+.cancelButton:hover {
+  background-color: #5a6268;
+} 

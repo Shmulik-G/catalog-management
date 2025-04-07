@@ -1,0 +1,16 @@
+/* In App.module.css */
+.appContainer {
+  display: flex;
+  min-height: 100vh;
+}
+
+.leftMenu {
+  width: 200px; /* Adjust width as needed */
+  background-color: #f0f0f0;
+  padding: 1rem;
+  border-right: 1px solid #ddd;
+}
+
+.mainContent {
+  flex-grow: 1;
+}

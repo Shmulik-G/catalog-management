@@ -1,0 +1,257 @@
+.productSearch {
+  padding: 1rem;
+}
+
+.productSearch h2 {
+  margin-bottom: 2rem;
+  color: #2c3e50;
+}
+
+.searchContainer {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.searchForm {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.searchInput {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.searchButton {
+  padding: 8px 16px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s;
+}
+
+.searchButton:hover {
+  background-color: #2980b9;
+}
+
+.resultsContainer {
+  margin-top: 20px;
+}
+
+.resultsCount {
+  margin: 10px 0;
+  font-size: 0.9em;
+  color: #666;
+  text-align: right;
+}
+
+.productTable {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  font-size: 0.8em;
+  margin-top: 10px;
+}
+
+.productTable th,
+.productTable td {
+  padding: 4px;
+  text-align: right;
+  border: 1px solid #ddd;
+}
+
+.productTable th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  font-size: 0.85em;
+}
+
+.productTable tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.productTable tr:hover {
+  background-color: #f0f0f0;
+}
+
+.productTable td:first-child {
+  font-weight: bold;
+  color: #666;
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  font-style: italic;
+}
+
+.error {
+  color: #e74c3c;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  background-color: #fde8e8;
+}
+
+.noResults {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  font-style: italic;
+}
+
+.results h3 {
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.productCard {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.productCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.productCard h4 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.description {
+  color: #666;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #3498db;
+  margin-bottom: 0.5rem;
+}
+
+.category {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.editButton {
+  padding: 6px 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.editButton:hover {
+  background-color: #218838;
+}
+
+.editModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.editModalContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  direction: rtl;
+}
+
+.editModalContent h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="number"],
+.formGroup textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.formGroup textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.saveButton,
+.cancelButton {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.saveButton {
+  background-color: #28a745;
+  color: white;
+}
+
+.saveButton:hover {
+  background-color: #218838;
+}
+
+.cancelButton {
+  background-color: #6c757d;
+  color: white;
+}
+
+.cancelButton:hover {
+  background-color: #5a6268;
+} 
