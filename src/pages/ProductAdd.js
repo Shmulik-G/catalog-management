@@ -13,6 +13,7 @@ const ProductAdd = () => {
     creation_date: new Date().toISOString()
   });
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
 
   // Check if user is authenticated when component mounts
@@ -36,6 +37,7 @@ const ProductAdd = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setSuccess('');
     setLoading(true);
 
     try {
@@ -67,7 +69,20 @@ const ProductAdd = () => {
         throw new Error(errorData.message || 'Failed to add product');
       }
 
-      navigate('/products');
+      setSuccess('Product added successfully!');
+      // Clear form after successful submission
+      setFormData({
+        product_name: '',
+        product_description: '',
+        current_stock_level: 0,
+        status: true,
+        creation_date: new Date().toISOString()
+      });
+      
+      // Navigate after a short delay to show the success message
+      setTimeout(() => {
+        navigate('/products');
+      }, 2000);
     } catch (err) {
       console.error('Form submission error:', err);
       if (err.message.includes('log in again') || err.message.includes('No authentication token')) {
@@ -86,6 +101,7 @@ const ProductAdd = () => {
     <div className={styles.container}>
       <h2>Add New Product</h2>
       {error && <div className={styles.error}>{error}</div>}
+      {success && <div className={styles.success}>{success}</div>}
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.formGroup}>
           <label htmlFor="product_name">Product Name</label>

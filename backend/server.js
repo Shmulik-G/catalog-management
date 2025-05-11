@@ -192,14 +192,14 @@ mongoose.connect(process.env.MONGODB_URI)
     // Check if admin user exists
     const adminExists = await User.findOne({ isAdmin: true });
     if (!adminExists) {
-      const hashedPassword = await bcrypt.hash('admin123', 10);
+      const hashedPassword = await bcrypt.hash(process.env.ADMIN_PASSWORD, 10);
       await User.create({
         user_id: 1,
-        user_name: 'admin',
-        first_name: 'System',
-        last_name: 'Admin',
-        email: 'admin@example.com',
-        birth_date: new Date('1990-01-01'),
+        user_name: process.env.ADMIN_USERNAME,
+        first_name: process.env.ADMIN_FIRST_NAME,
+        last_name: process.env.ADMIN_LAST_NAME,
+        email: process.env.ADMIN_EMAIL,
+        birth_date: new Date(process.env.ADMIN_BIRTH_DATE),
         password: hashedPassword,
         status: true,
         isAdmin: true,
@@ -267,6 +267,7 @@ app.post('/api/auth/register', async (req, res) => {
         first_name: user.first_name,
         last_name: user.last_name,
         email: user.email,
+        birth_date: user.birth_date,
         isAdmin: user.isAdmin 
       } 
     });
@@ -307,6 +308,7 @@ app.post('/api/auth/login', async (req, res) => {
         first_name: user.first_name,
         last_name: user.last_name,
         email: user.email,
+        birth_date: user.birth_date,
         isAdmin: user.isAdmin
       }
     });
@@ -543,6 +545,83 @@ app.put('/api/products/:id', authenticateToken, async (req, res) => {
       error: error.message,
       stack: error.stack
     });
+  }
+});
+
+// Update user profile
+app.put('/api/users/profile', authenticateToken, async (req, res) => {
+  try {
+    const { first_name, last_name, email, birth_date } = req.body;
+    const userId = req.user.userId;
+
+    // Check if email is already taken by another user
+    const existingUser = await User.findOne({ 
+      email, 
+      user_id: { $ne: userId } 
+    });
+    
+    if (existingUser) {
+      return res.status(400).json({ message: 'כתובת אימייל זו כבר בשימוש' });
+    }
+
+    const updatedUser = await User.findOneAndUpdate(
+      { user_id: userId },
+      { 
+        first_name,
+        last_name,
+        email,
+        birth_date: new Date(birth_date)
+      },
+      { new: true }
+    );
+
+    if (!updatedUser) {
+      return res.status(404).json({ message: 'משתמש לא נמצא' });
+    }
+
+    res.json({
+      user_id: updatedUser.user_id,
+      user_name: updatedUser.user_name,
+      first_name: updatedUser.first_name,
+      last_name: updatedUser.last_name,
+      email: updatedUser.email,
+      birth_date: updatedUser.birth_date,
+      isAdmin: updatedUser.isAdmin
+    });
+  } catch (error) {
+    console.error('Error updating profile:', error);
+    res.status(500).json({ message: 'שגיאת שרת', error: error.message });
+  }
+});
+
+// Change password
+app.put('/api/users/change-password', authenticateToken, async (req, res) => {
+  try {
+    const { currentPassword, newPassword } = req.body;
+    const userId = req.user.userId;
+
+    const user = await User.findOne({ user_id: userId });
+    if (!user) {
+      return res.status(404).json({ message: 'משתמש לא נמצא' });
+    }
+
+    // Verify current password
+    const validPassword = await bcrypt.compare(currentPassword, user.password);
+    if (!validPassword) {
+      return res.status(400).json({ message: 'סיסמה נוכחית שגויה' });
+    }
+
+    // Hash new password
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+    // Update password
+    user.password = hashedPassword;
+    await user.save();
+
+    res.json({ message: 'הסיסמה עודכנה בהצלחה' });
+  } catch (error) {
+    console.error('Error changing password:', error);
+    res.status(500).json({ message: 'שגיאת שרת', error: error.message });
   }
 });
 

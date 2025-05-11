@@ -8,78 +8,71 @@
 }
 
 .searchContainer {
-  padding: 20px;
+  padding: 10px;
+  direction: ltr;
+  text-align: left;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .searchForm {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 8px;
+  margin-bottom: 10px;
 }
 
 .searchInput {
   flex: 1;
-  padding: 8px 12px;
-  border: 1px solid #ddd;
+  padding: 6px;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 0.9em;
+  font-size: 14px;
 }
 
 .searchButton {
-  padding: 8px 16px;
-  background-color: #3498db;
+  padding: 6px 12px;
+  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 0.9em;
-  transition: background-color 0.2s;
 }
 
 .searchButton:hover {
-  background-color: #2980b9;
+  background-color: #0056b3;
 }
 
 .resultsContainer {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .resultsCount {
-  margin: 10px 0;
-  font-size: 0.9em;
+  margin-bottom: 8px;
   color: #666;
-  text-align: right;
+  font-size: 14px;
 }
 
 .productTable {
   width: 100%;
   border-collapse: collapse;
-  background-color: white;
-  font-size: 0.8em;
-  margin-top: 10px;
+  margin-top: 8px;
+  font-size: 14px;
 }
 
 .productTable th,
 .productTable td {
-  padding: 4px;
-  text-align: right;
-  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
 .productTable th {
-  background-color: #f5f5f5;
-  font-weight: bold;
-  font-size: 0.85em;
-}
-
-.productTable tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: #f8f9fa;
+  font-weight: 600;
 }
 
 .productTable tr:hover {
-  background-color: #f0f0f0;
+  background-color: #f5f5f5;
 }
 
 .productTable td:first-child {
@@ -89,24 +82,26 @@
 
 .loading {
   text-align: center;
-  padding: 20px;
+  margin: 10px 0;
   color: #666;
-  font-style: italic;
+  font-size: 14px;
 }
 
 .error {
-  color: #e74c3c;
-  padding: 10px;
-  margin: 10px 0;
+  color: #dc3545;
+  margin-bottom: 8px;
+  padding: 8px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
   border-radius: 4px;
-  background-color: #fde8e8;
+  font-size: 14px;
 }
 
 .noResults {
   text-align: center;
-  padding: 20px;
+  margin: 10px 0;
   color: #666;
-  font-style: italic;
+  font-size: 14px;
 }
 
 .results h3 {
@@ -163,7 +158,6 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 14px;
 }
 
 .editButton:hover {
@@ -197,61 +191,70 @@
   text-align: center;
 }
 
+.editFormContainer {
+  margin-top: 10px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.editForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .formGroup {
-  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .formGroup label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+  font-weight: 500;
+  font-size: 14px;
 }
 
-.formGroup input[type="text"],
-.formGroup input[type="number"],
+.formGroup input,
 .formGroup textarea {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ddd;
+  padding: 6px;
+  border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
 }
 
 .formGroup textarea {
-  height: 100px;
+  min-height: 80px;
   resize: vertical;
 }
 
-.modalButtons {
+.buttonContainer {
   display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-top: 20px;
+  gap: 8px;
+  margin-top: 8px;
 }
 
 .saveButton,
 .cancelButton {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  padding: 6px 12px;
   font-size: 14px;
-}
-
-.saveButton {
-  background-color: #28a745;
-  color: white;
 }
 
 .saveButton:hover {
   background-color: #218838;
 }
 
-.cancelButton {
-  background-color: #6c757d;
-  color: white;
-}
-
 .cancelButton:hover {
   background-color: #5a6268;
+}
+
+h2 {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+}
+
+h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
 } 
